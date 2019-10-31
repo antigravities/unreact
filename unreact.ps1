@@ -1,13 +1,13 @@
 # https://stackoverflow.com/a/50114992/11910041
-function Unzip($zipfile, $outdir)
-{
-	$shell = New-Object -COM Shell.Application
-    $zip = $shell.NameSpace($zipfile)
-    foreach($item in $zip.Items())
-    {
-        $shell.Namespace($outdir).CopyHere($item, 0x14)
+function Unzip($zipfile, $outdir) {
+	$shell = New-Object -COM Shell.Application;
+    $zip = $shell.NameSpace($zipfile);
+    foreach($item in $zip.Items()) {
+        $shell.Namespace($outdir).CopyHere($item, 0x14);
     }
 }
+
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 echo "
 ###########
@@ -50,14 +50,14 @@ $files = @(
 $files = New-Object System.Collections.ArrayList(,$files)
 
 if( [System.Environment]::OSVersion.Version.Major -eq 10 ){ # 10
-	$files.Add("bins_cef_win32_win10-64.zip.6daf644756292d14c891642988a1f7933e86bf8f") > $null;
-	$files.Add("bins_webhelpers_win32_win10-64.zip.189fc0a76d01f6346aec8483cb4375ddc8520124") > $null;
+	$files.Add("bins_cef_win32_win10-64.zip.6daf644756292d14c891642988a1f7933e86bf8f") | Out-Null;
+	$files.Add("bins_webhelpers_win32_win10-64.zip.189fc0a76d01f6346aec8483cb4375ddc8520124") | Out-Null;
 } elseif( ([System.Environment]::OSVersion.Version.Major -eq 6) -and ([System.Environment]::OSVersion.Version.Minor -eq 3) ){ # 8
-	$files.Add("bins_cef_win32_win8-64.zip.0a308f1b87a5bff5ded7cea636354cd0252e5db5") > $null;
-	$files.Add("bins_webhelpers_win32_win8-64.zip.f552fabc287dd648b7b9cc76b89b49f3dac9daaa") > $null;
+	$files.Add("bins_cef_win32_win8-64.zip.0a308f1b87a5bff5ded7cea636354cd0252e5db5") | Out-Null;
+	$files.Add("bins_webhelpers_win32_win8-64.zip.f552fabc287dd648b7b9cc76b89b49f3dac9daaa") | Out-Null;
 } else { # 7
-	$files.Add("bins_webhelpers_win32_win7-64.zip.189fc0a76d01f6346aec8483cb4375ddc8520124") > $null;
-	$files.Add("bins_cef_win32_win7-64.zip.6daf644756292d14c891642988a1f7933e86bf8f") > $null;
+	$files.Add("bins_webhelpers_win32_win7-64.zip.189fc0a76d01f6346aec8483cb4375ddc8520124") | Out-Null;
+	$files.Add("bins_cef_win32_win7-64.zip.6daf644756292d14c891642988a1f7933e86bf8f") | Out-Null;
 }
 
 $cwd = pwd;
@@ -69,7 +69,8 @@ foreach( $i in $files ){
 
 	echo "Preparing and extracting $out";
 
-	Invoke-WebRequest -Uri "https://steamcdn-a.akamaihd.net/client/$i" -OutFile $out;
+	# Yes, I did try WebClient.DownloadFile
+	Add-Content -Path $out -Value (New-Object System.Net.WebClient).DownloadString("https://steamcdn-a.akamaihd.net/client/$i");
 
 	Unzip -ZipFile ($cwd.Path + "\" +  $out) -OutDir $Steamloc;
 	Remove-Item -Path $out;
