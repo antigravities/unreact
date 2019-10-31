@@ -60,7 +60,7 @@ foreach( $i in $files ){
 	Remove-Item -Path $out;
 }
 
-"BootStrapperInhibitAll = enable
-BootStrapperForceSelfUpdate = disable" | Out-File $Steamloc/steam.cfg
+"BootStrapperInhibitAll=enable
+BootStrapperForceSelfUpdate=disable" | Out-File -NoNewline $Steamloc/steam.cfg
 
 echo "Done...";
