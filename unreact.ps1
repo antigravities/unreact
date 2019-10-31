@@ -55,12 +55,11 @@ foreach( $i in $files ){
 
 	echo "Preparing and extracting $out";
 
-	Invoke-WebRequest -Uri "https://steamcdn-a.akamaihd.net/client/$i" -OutFile $out;
-	Expand-Archive $out -Force -DestinationPath $Steamloc;
-	Remove-Item -Path $out;
+#	Invoke-WebRequest -Uri "https://steamcdn-a.akamaihd.net/client/$i" -OutFile $out;
+#	Expand-Archive $out -Force -DestinationPath $Steamloc;
+#	Remove-Item -Path $out;
 }
 
-"BootStrapperInhibitAll=enable
-BootStrapperForceSelfUpdate=disable" | Out-File -NoNewline $Steamloc/steam.cfg
+[IO.File]::WriteAllLines("$Steamloc\steam.cfg", @("BootStrapperInhibitAll=enable", "BootStrapperForceSelfUpdate=disable"));
 
 echo "Done...";
