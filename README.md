@@ -14,4 +14,4 @@ Open PowerShell (windows key + X -> PowerShell), and then
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/antigravities/unreact/master/unreact.ps1'))
 ```
 ### The better way
-Download [unreact.ps1](https://raw.githubusercontent.com/antigravities/unreact/master/unreact.ps1), drag it into PowerShell, and press ENTER.
+Download [unreact.ps1](https://raw.githubusercontent.com/antigravities/unreact/master/unreact.ps1). Then, type `Set-ExecutionPolicy Bypass -Scope Process -Force` into Powershell. After that, drag unreact.ps1 into PowerShell, and press ENTER.
