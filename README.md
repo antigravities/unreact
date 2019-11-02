@@ -3,7 +3,7 @@ This script will download and install the last stable version of Steam before th
 
 Before you start, close Steam. You can also (optionally) clear out *all* of the files in your Steam directory except for steamapps and userdata.
 
-Please consider the implications of what you are doing and inspect the script. Running old versions of Steam may be fine for a while... until an exploit is discovered and Valve only updates the version with the new library. Be careful.
+Please consider the implications of what you are doing and inspect the script. **This is intended as a temporary fix<sup><a href="#footnote-1">1</a></sup>.** Running old versions of Steam may be fine for a while... until an exploit is discovered and Valve only updates the version with the new library. Be careful.
 
 ## Run this
 **This script runs on Windows 7 x64, Windows 8.1 x64, and Windows 10 x64.** The downloaded items will cause undefined behavior on other operating systems.
@@ -15,3 +15,5 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 ```
 ### The better way
 Download [unreact.ps1](https://raw.githubusercontent.com/antigravities/unreact/master/unreact.ps1). Then, type `Set-ExecutionPolicy Bypass -Scope Process -Force` into Powershell. After that, drag unreact.ps1 into PowerShell, and press ENTER.
+
+<sup><a id="footnote-1">1: I created this because the new update's performance was simply unbearable for me with the size of my library.</a></sup>
