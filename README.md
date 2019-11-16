@@ -3,7 +3,7 @@ This script will download and install the last stable version of Steam before th
 
 Before you start, close Steam. You can also (optionally) clear out *all* of the files in your Steam directory except for steamapps and userdata.
 
-NB: **This is intended as a temporary fix<sup><a href="#footnote-1">1</a></sup>.** Running old versions of Steam may be fine for a while... until an exploit is discovered and Valve only updates the version with the new library. Be careful.
+**This is intended as a temporary fix<sup><a href="#footnote-1">1</a></sup>.** Newer games, especially those that use the new Origin integration (i.e. Star Wars Jedi: The Fallen Order) may not work! More importantly, running old versions of Steam may be fine for a while... until an exploit is discovered. Be careful.
 
 ## Run this
 **This script runs on Windows 7 x64, Windows 8.1 x64, and Windows 10 x64.** The downloaded items will cause undefined behavior on other operating systems.
