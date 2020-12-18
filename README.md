@@ -1,4 +1,8 @@
+## Archived
+While this script probably still works, I will not continue to support it. If you really must, use the [-no-browser +open steam://open/minigameslist](https://www.howtogeek.com/694531/how-to-reduce-steams-ram-usage-from-400-mb-to-60-mb/) trick instead.
+
 # unreact
+
 This script will download and install the last stable version of Steam before the Library update on 10-30-19 [from the Steam CDN](https://github.com/antigravities/unreact/blob/master/unreact.ps1#L73), and write a file to prevent the bootstrapper from attempting an update.
 
 Before you start, close Steam. You can also (optionally) clear out *all* of the files in your Steam directory except for steamapps and userdata.
